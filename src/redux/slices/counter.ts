@@ -20,12 +20,13 @@ type InitialState = {
         decrement: (random) => {
         random.value = random.value - 1;
         },
-        incrementByTwo: (byTwo) => {
-        byTwo.value = byTwo.value + 2;
+        incrementByTwo: (byTwo, actions) => {
+            console.log (actions.payload, "actions.payload")
+        byTwo.value = byTwo.value + actions.payload;
         }
     },
     });
 
-    export const actions = counterSlice.actions;
+    export const counterActions = counterSlice.actions;
     const counterReducer = counterSlice.reducer;
     export default counterReducer;
